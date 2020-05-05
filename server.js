@@ -340,5 +340,5 @@ app.post("/contact", jsonparser,(req,res)=>{
 
 
 app.listen(port, ()=>{
-    //console("server started")
+    console.log("server started")
 });
