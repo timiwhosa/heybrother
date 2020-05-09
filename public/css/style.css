@@ -44,7 +44,8 @@ hr{
     line-height: 45px;
 }
 .introduction p a{
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    color: #607D8B;
 }
 /* practice-question */
 .practice-question{

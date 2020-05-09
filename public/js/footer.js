@@ -27,7 +27,7 @@ var html =`<div id="footer-div1"> <div class="logo">
                 <li><a href="https://wa.me/2348140766866?text=Hi%20TeamJETbooks%20%0AI'm%20a%20futaAspirant%20%20applying%20to%20the%20department%20of__%20%0AMy%20name%20is__"><img src="/img/banner/whatsapp.png" alt=""></a></li>
                 <li><a href="#"><img src="/img/banner/youtube.png" alt=""></a></li>
                 <li><a href="#"><img src="/img/banner/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="/img/banner/instagram.png" alt=""></a></li>
+                <li><a href="https://instagram.com/jetbooks.online"><img src="/img/banner/instagram.png" alt=""></a></li>
             </ul>
         </div>`;
 

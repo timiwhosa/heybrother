@@ -3,40 +3,21 @@
 // var options ={
 //     method:"POST"
 //     // headers: {"Accept", "application/json"}
+var html = ` <h3>Comments (<span id="noofcomments">6</span>)</h3>
+            <h5>Please leave us a comment. <span class="mostr">below is a list of <span id="noofcomments">6</span> most recent comments</span></h5>
+            <div class="commentinput-sec">
+               <p class="usersname"><input type="text" name="name" placeholder="Name:" id="usersname"  ></p>
+                <p class="userscommentinput"><input type="text" id="userscommentinput" name="comment" placeholder="write something here"></p>
+                <div class="butn" id="comment-btn"><span id="start">COMMENT</span></div>
+            </div>
+            <div id="usercomments-div"></div>`
 // }
-var comment ;
-window.onload = function(){
-    
-const uri = "/comment";
+document.getElementById("comments").innerHTML = html;
 
-let h = new Headers();
-h.append("Accept", "application/json");
-let req = new Request(uri, {
-    method: "GET",
-    headers: h,
-    mode: "cors"
-});
-
-fetch(req).then((res) => {
-    if (res.ok) {
-        return res.json();
-    }
-    else {
-        new Error("not bad");
-    }
-}).then((jsondata) => {
-    comment = jsondata;
-    // console.log(JSON.stringify(comment));
-    loadcomment();
-     
-}).catch((err) => {
-    console.log(err);
-}); 
-}
 
 // April 31, 2020, 4:42 am
 var j ;
-function loadcomment(){
+function loadcomment(comment){
     for(i=0; i<comment.length; i++){
         var eachcomment = `
         <div id="usercomment">

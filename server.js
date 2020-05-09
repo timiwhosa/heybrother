@@ -75,6 +75,14 @@ app.get("/post-utme", urlencodedParser, (req,res)=>{
     // res.end();
     
 });
+app.get("/futa-postutme/pastquestions", urlencodedParser, (req, res) => {
+
+    res.sendFile(__dirname + "/public/post-utme-pastquestions/post-utme-pastquestions.html");
+
+    // res.end();
+
+});
+
 app.get("/home", (req, res) => {
     res.sendFile(__dirname + "/public/home.html");
 });
@@ -231,11 +239,17 @@ var subject;
 app.post("/multiple", urlencodedParser, (req,res)=>{
   
     
-    // //console(req.query);
+    // console.log(req.body.multiple);
+    if(req.body.multiple.length>5){
+        subject= [req.body.multiple]
+    }
+    else{
+        subject = req.body.multiple;
+    }
     
-    subject = (req.body.multiple);
+    
     // //console("$$$$$$$$$$$$$$$$$$");
-    // //console(subject);
+    console.log(subject.length);
     res.sendFile(__dirname + "/public/multiple.html");                         
 });
 
@@ -257,6 +271,7 @@ app.get("/multiplequestion", (req, res) => {
         // //console("result:", result);
         return result;
     }
+    console.log("subject length is"+subject);
     function creatarray(start) {
         let agricquestion = [];
         for (j = 0; j < subject.length; j++) {
@@ -267,7 +282,7 @@ app.get("/multiplequestion", (req, res) => {
             agricquestion.push(hello);
 
         }
-        // //console(agricquestion);
+        console.log(agricquestion);
         return agricquestion;
     }
     let numarray = creatarray(0);
@@ -282,7 +297,7 @@ app.get("/multiplequestion", (req, res) => {
             // //console("rannumber", rannumber);
             // //console("numarray", numarray)
             hello.push(rannumber);
-            // //console(hello);
+            //console(hello);
         }
         hl.push(hello);
     }
@@ -339,6 +354,20 @@ app.post("/contact", jsonparser,(req,res)=>{
 })
 
 
+
+
+
+
+
+// BLOG SECTION
+
+app.get("/blog/futa-postutme/", urlencodedParser, (req, res) => {
+
+    res.sendFile(__dirname + "/public/blog/about-futa.html");
+
+    // res.end();
+
+});
 app.listen(port, ()=>{
     console.log("server started")
 });

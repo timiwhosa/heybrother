@@ -90,18 +90,31 @@ function saveu() {
     var nametos = name.value;
     var sname = surn.value;
 
+    score = 0;
+    firstdisplay.style.display = "none";
+    document.getElementById("scorediv").style.display = "none";
+    mainctn.style.display = "block";
+    rendersubject(myquestion.subject);
+    renderquestion();
+    noofans = 0;
+    time = startintime * 60;
+    countdown();
+    interval = setInterval(countdown, 1000);
+    document.getElementsByTagName("footer")[0].style.marginTop = "8vw";
+
     if (nametos.trim() != "" && sname.trim() != "" && nametos.length <=12 && sname.length <=12) {
-        score = 0;
-        firstdisplay.style.display = "none";
-        document.getElementById("scorediv").style.display = "none";
-        mainctn.style.display = "block";
-        rendersubject(myquestion.subject);
-        renderquestion();
-        noofans = 0;
-        time = startintime * 60;
-        countdown();
-        interval = setInterval(countdown, 1000);
-        document.getElementsByTagName("footer")[0].style.marginTop = ` calc(100vh - 140px)`;
+        // score = 0;
+        // firstdisplay.style.display = "none";
+        // document.getElementById("scorediv").style.display = "none";
+        // mainctn.style.display = "block";
+        // rendersubject(myquestion.subject);
+        // renderquestion();
+        // noofans = 0;
+        // time = startintime * 60;
+        // countdown();
+        // interval = setInterval(countdown, 1000);
+        // document.getElementsByTagName("footer")[0].style.marginTop = "8vw";
+        // document.getElementsByTagName("footer")[0].style.marginTop = ` calc(100vh - 140px)`; //not needed
 
         const uri2 = "/savenewuseroh";
         var options = {
@@ -141,7 +154,7 @@ function sub() {
     pause.style.zIndex = "2";
     mainctn.style.display = "none";
     toappend.innerHTML = "";
-    document.getElementsByTagName("footer")[0].style.marginTop = ` 0`;
+    document.getElementsByTagName("footer")[0].style.marginTop = ` 0`; //not needed
 }
 
 function toggler() {
@@ -237,7 +250,7 @@ function renderquestion(){
             // help.push(pag);
         }
         // console.log(help.length);
-        if(h<4){
+        if (h < myquestion.subject.length){
             // console.log(h);
             questionpagination = `<div id="question-pagination"> ${pag} 
             <span id="next${h}" onclick="checkifanswered(), renderdesiredquestion(${myquestion.subject.length}, ${h + 1})">NEXT <span>&#8250;</span></span>

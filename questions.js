@@ -355,7 +355,7 @@ mathematics: [
         { question: `Solve for x and y if x-y = 3 and x<sup>2</sup> - y<sup>2</sup> = 9 `, option: ["(-3,0) ","(0,-3) "," (3,0)","(0,3) ","A"] },
         { question: `If y varies directly as the square root of x, and y=3 when x= 25. Calculate y when x=100`, option: [" 12","3 ","5 ","6 ","D"] },
         { question: `If x is inversely proportional to y, and x= 3&#189; when y=2, find x if y=4.`, option: [" 1&#188;", " 2<sup>5</sup>/<sub>4</sub>", "1<sup>5</sup>/<sub>4</sub>","2&#188;","C"] },
-        { question: `For what range of values of x is <sup>1</sup>/<sub>3</sub>x + <sup1></sup>/<sub>4</sub>><sup>1</sup>/<sub>4</sub>x+<sup>1</sup>/<sub>2</sub> ?`, option: [" x < 3","x > 3 "," x>-3","x<-3 ","B"] },
+        { question: `For what range of values of x is <sup>1</sup>/<sub>3</sub>x + <sup>1</sup>/<sub>4</sub> > <sup>1</sup>/<sub>4</sub>x+<sup>1</sup>/<sub>2</sub> ?`, option: [" x < 3","x > 3 "," x>-3","x<-3 ","B"] },
         { question: `Solve the inequality -6&le;4-2x<5-x `, option: [" -1<x<5"," -1&le; x &le; 6","-1&le; x < 6 ","-1 < x &le;5 ","D"] },
         { question: `FInd the sum ti infinity of the following series <br> 0 .2 +0 .02 +0 .00 2+ 0.0 00 2+..... `, option: ["1/4 "," 2/9","2/11","2/7 ","B"] },
         { question: `The 3rd term of an arithmetic prog ression is -8 and the 7th term is -28. F ind the 10th trem of the progression`, option: [" -43","-164 ","164 ","44 ","A"] },

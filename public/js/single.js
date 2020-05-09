@@ -84,18 +84,30 @@ function saveu() {
   var nametos = name.value;
   var sname = surn.value;
 
+  score = 0;
+  firstdisplay.style.display = "none";
+  document.getElementById("scorediv").style.display = "none";
+  mainctn.style.display = "block";
+  rendersubject(myquestion.subject);
+  renderquestion(myquestion, myquestion.questiondata.length);
+  hii();
+  noofans = 0;
+  time = startintime * 60;
+  countdown();
+  interval = setInterval(countdown, 1000);
+
   if (nametos.trim() != "" && sname.trim() != "" && nametos.length <= 12 && sname.length <= 12){
-    score = 0;
-    firstdisplay.style.display = "none";
-    document.getElementById("scorediv").style.display = "none";
-    mainctn.style.display = "block";
-    rendersubject(myquestion.subject);
-    renderquestion(myquestion, myquestion.questiondata.length);
-    hii();
-    noofans = 0;
-    time = startintime * 60;
-    countdown();
-    interval = setInterval(countdown, 1000);
+    // score = 0;
+    // firstdisplay.style.display = "none";
+    // document.getElementById("scorediv").style.display = "none";
+    // mainctn.style.display = "block";
+    // rendersubject(myquestion.subject);
+    // renderquestion(myquestion, myquestion.questiondata.length);
+    // hii();
+    // noofans = 0;
+    // time = startintime * 60;
+    // countdown();
+    // interval = setInterval(countdown, 1000);
 
     const uri2 = "/savenewuseroh";
     var options = {
