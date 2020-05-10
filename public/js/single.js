@@ -264,7 +264,7 @@ function renderquestion(data, nfq) {
             var he = ["A", "B", "C", "D", "E", "F", "G", "H"]
             // 
             oph += `
-           <li><input type="radio" name="question${hi}-options" value ="${he[k]}" id="option${k}"> ${data.questiondata[hi].option[k]}</li>
+           <li><input type="radio" onclick="checkifcorrectandshow(${hi});" name="question${hi}-options" value ="${he[k]}" id="option${k}"><span id="${hi}${k}"> ${data.questiondata[hi].option[k]}</span></li>
                 `;
             opul = `<ul id="option-ul"> ${oph}</ul>`;
           }
@@ -398,7 +398,7 @@ function checkifcorrect() {
     for (i = 0; i < optionselected.length; i++) {
 
       if ( optionselected[i].checked == true){
-        if (optionselected[i].value.trim() == myquestion.questiondata[j].option[myquestion.questiondata[i].option.length - 1].trim()){
+        if (optionselected[i].value.trim() == myquestion.questiondata[j].option[myquestion.questiondata[j].option.length - 1].trim()){
 
           score++;
         }
@@ -407,6 +407,40 @@ function checkifcorrect() {
   }
   // console.log(score);
 }
+
+
+function checkifcorrectandshow(q) {
+  // for (j = 0; j < myquestion.questiondata.length; j++) {
+    var optionselected = document.getElementsByName(`question${q}-options`);
+    for (i = 0; i < optionselected.length; i++) {
+
+        if (optionselected[i].value.trim() == myquestion.questiondata[q].option[myquestion.questiondata[q].option.length - 1].trim()) {
+            document.getElementById(`${q}${i}`).style.backgroundColor = "green";
+            document.getElementById(`${q}${i}`).style.padding = "4px";
+            // console.log(optionselected[i]);
+            // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+        }
+          if (optionselected[i].checked == true) {
+            // console.log(optionselected[i]);
+            // console.log(optionselected[i].value + ":" + myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1].toString());
+            if (optionselected[i].value.toString().trim() == myquestion.questiondata[q].option[myquestion.questiondata[q].option.length - 1].toString().trim()) {
+              document.getElementById(`${q}${i}`).style.backgroundColor = "green";
+              document.getElementById(`${q}${i}`).style.padding = "4px";
+              // console.log(optionselected[i]);
+              // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+            }
+            else if (optionselected[i].value.toString().trim() != myquestion.questiondata[q].option[myquestion.questiondata[q].option.length - 1].toString().trim()) {
+              document.getElementById(`${q}${i}`).style.backgroundColor = "red";
+              document.getElementById(`${q}${i}`).style.padding = "4px";
+              // console.log("h",optionselected[i]);
+              // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+            }
+        }
+      // }
+    }
+  }
+  // console.log(score);
+
 
 function checknoofanswered() {
   for (j = 0; j < myquestion.questiondata.length; j++) {

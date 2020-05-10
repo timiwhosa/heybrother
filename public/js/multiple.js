@@ -428,7 +428,7 @@ console.log(p,q)
     var optionselected = document.getElementsByName(`question${p}${q}-options`);
             // console.log(optionselected);
             for (i = 0; i < optionselected.length; i++) {
-                if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q-1].option[myquestion.questiondata[p][q-1].option.length - 1].toString().trim()) {
                     document.getElementById(`${p}${q}${i}`).style.backgroundColor = "green";
                     document.getElementById(`${p}${q}${i}`).style.padding = "4px";
                     // console.log(optionselected[i]);
@@ -437,13 +437,13 @@ console.log(p,q)
                 if (optionselected[i].checked == true) {
                     // console.log(optionselected[i]);
                     // console.log(optionselected[i].value + ":" + myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1].toString());
-                    if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                    if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q-1].option[myquestion.questiondata[p][q-1].option.length - 1].toString().trim()) {
                         document.getElementById(`${p}${q}${i}`).style.backgroundColor = "green";
                         document.getElementById(`${p}${q}${i}`).style.padding = "4px";
                         // console.log(optionselected[i]);
                         // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
                     }
-                    else if (optionselected[i].value.toString().trim() != myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                    else if (optionselected[i].value.toString().trim() != myquestion.questiondata[p][q-1].option[myquestion.questiondata[p][q-1].option.length - 1].toString().trim()) {
                         document.getElementById(`${p}${q}${i}`).style.backgroundColor = "red";
                         document.getElementById(`${p}${q}${i}`).style.padding = "4px";
                         // console.log("h",optionselected[i]);
