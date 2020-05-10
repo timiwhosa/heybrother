@@ -1,10 +1,18 @@
 [
   {
     "page": "home",
-    "visits": 145
+    "visits": 67
   },
   {
     "page": "getstarted",
-    "visits": 49
+    "visits": 12
+  },
+  {
+    "page": "multiple",
+    "visits": 93
+  },
+  {
+    "page": "single",
+    "visits": 73
   }
 ]

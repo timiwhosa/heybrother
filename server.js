@@ -116,8 +116,8 @@ app.get("/getstarted", urlencodedParser, (req, res) => {
     var visits = gp[1].visits;
     visits++;
     // //console("visits:", visits);
-    gp.splice(1,1);
-    gp.push({ "page": "getstarted", "visits": visits });
+    gp.splice(1, 1, { "page": "getstarted", "visits": visits });
+    // gp[1] = ;
     fs.writeFileSync("visits.json", JSON.stringify(gp, null, 2));
     res.sendFile(__dirname + "/public/free-mode.html");
 });
@@ -149,6 +149,12 @@ var singlesubject;
 app.get("/single/:name", (req,res)=>{
     // if(questions)
     // var subject;
+    var visits = gp[3].visits;
+    visits++;
+    // //console("visits:", visits);
+    gp.splice(3, 1, { "page": "single", "visits": visits });
+    // gp[3]= { "page": "single", "visits": visits };
+    fs.writeFileSync("visits.json", JSON.stringify(gp, null, 2));
 
     
     //console("one1", hll)
@@ -237,7 +243,12 @@ app.post("/savenewuseroh", jsonparser,  (req,res)=>{
 // //console(questions.agric.length)
 var subject;
 app.post("/multiple", urlencodedParser, (req,res)=>{
-  
+    var visits = gp[2].visits;
+    visits++;
+    // //console("visits:", visits);
+    gp.splice(2, 1, { "page": "multiple", "visits": visits });
+    // gp[2]={ "page": "multiple", "visits": visits };
+    fs.writeFileSync("visits.json", JSON.stringify(gp, null, 2));
     
     // console.log(req.body.multiple);
     if(req.body.multiple.length>5){
@@ -282,7 +293,7 @@ app.get("/multiplequestion", (req, res) => {
             agricquestion.push(hello);
 
         }
-        console.log(agricquestion);
+        //console.log(agricquestion);
         return agricquestion;
     }
     let numarray = creatarray(0);

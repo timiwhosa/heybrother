@@ -1,7 +1,7 @@
 var firstdisplay = document.getElementById("first-display");
 var note = document.getElementById("note");
 var mainctn = document.getElementById("main-ctn");
-startbtn = document.getElementById("start-btn");
+var startbtn = document.getElementById("start-btn");
 var subjectsul = document.getElementById("subjects");
 var timer = document.getElementById("timer");
 var submit = document.getElementById("submit");
@@ -223,8 +223,9 @@ function renderquestion(){
             oph = "";
             for (k = 0; k <= myquestion.questiondata[j][i].option.length - 2; k++) {
                 var he = ["A","B","C","D","E","F","G","H"]
+                // var hm = ``;
                 oph += `
-                <li><input type="radio" name="question${j}${i+1}-options" value ="${he[k]}" id="option${k}"> ${myquestion.questiondata[j][i].option[k]}</li>
+                <li><input type="radio" name="question${j}${i + 1}-options" onclick="checkifcorrectandshow(${j} , ${i + 1});" value ="${he[k]}" id="option${k}"><span id="${j}${i+1}${k}"> ${myquestion.questiondata[j][i].option[k]}</span></li>
                     `;
                 opul = `<ul id="option-ul"> ${oph}</ul>`;
             }
@@ -418,7 +419,49 @@ function checkifcorrect() {
     // console.log("you scored:",score);
 }
 
+function checkifcorrectandshow(p,q) {
+    // for (j = 0; j < myquestion.questiondata.length; j++) {
+    //     for (k = 0; k < myquestion.questiondata[j].length; k++) {
+    //         // console.log("a, b");
+    //         var he = k + 1
+console.log(p,q)
+    var optionselected = document.getElementsByName(`question${p}${q}-options`);
+            // console.log(optionselected);
+            for (i = 0; i < optionselected.length; i++) {
+                if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                    document.getElementById(`${p}${q}${i}`).style.backgroundColor = "green";
+                    document.getElementById(`${p}${q}${i}`).style.padding = "4px";
+                    // console.log(optionselected[i]);
+                    // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+                }
+                if (optionselected[i].checked == true) {
+                    // console.log(optionselected[i]);
+                    // console.log(optionselected[i].value + ":" + myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1].toString());
+                    if (optionselected[i].value.toString().trim() == myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                        document.getElementById(`${p}${q}${i}`).style.backgroundColor = "green";
+                        document.getElementById(`${p}${q}${i}`).style.padding = "4px";
+                        // console.log(optionselected[i]);
+                        // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+                    }
+                    else if (optionselected[i].value.toString().trim() != myquestion.questiondata[p][q].option[myquestion.questiondata[p][q].option.length - 1].toString().trim()) {
+                        document.getElementById(`${p}${q}${i}`).style.backgroundColor = "red";
+                        document.getElementById(`${p}${q}${i}`).style.padding = "4px";
+                        // console.log("h",optionselected[i]);
+                        // console.log(optionselected[i].value ,":", myquestion.questiondata[j][k].option[myquestion.questiondata[j][k].option.length - 1]);
+                    }
+                    
+                }
+                // else if (optionselected[i].checked == false){
 
+                //   document.getElementById(`${ha}`).style.backgroundColor = "white";
+                //   document.getElementById(`${ha}`).style.border = "1px solid #000000";
+                // }
+        //     }
+        // }
+
+    }
+    // console.log("you scored:",score);
+}
 {/* <span id="q1">2</span>
     <span id="q1">3</span>
     <span id="q1">4</span>
